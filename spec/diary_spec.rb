@@ -26,7 +26,7 @@ describe Diary do
       # allow(entry_double).to receive(:body).and_return(body_input)
       # diary.add(title_input, body_input)
       diary.add(title_input, body_input)
-      expect(entry_double).to receive(:title)
+      expect(entry_double).to receive(:title).and_return(title_input)
       diary.index
     end
   end
