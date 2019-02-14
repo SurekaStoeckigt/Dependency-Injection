@@ -10,24 +10,30 @@ describe Diary do
       entry_double = double :entry
       entry_class_double = double :entry_class, new: entry_double
       diary = Diary.new(entry_class_double)
-      allow(entry_double).to receive(:title).and_return(title_input)
-      allow(entry_double).to receive(:body).and_return(body_input)
+      # allow(entry_double).to receive(:title).and_return(title_input)
+      # allow(entry_double).to receive(:body).and_return(body_input)
       diary.add(title_input, body_input)
       expect(diary.entries).to include entry_double
     end
   end
 
   describe "#index" do
-    it 'displays the titles of the entries' do
+    it 'displays the titles of a single entry' do
       entry_double = double :entry
+      # allow(entry_double).to receive(:title).and_return("title")
+
+      expect(entry_double).to receive(:title).and_return("title")
       entry_class_double = double :entry_class, new: entry_double
+
+
       diary = Diary.new(entry_class_double)
       # allow(entry_double).to receive(:title).and_return(title_input)
       # allow(entry_double).to receive(:body).and_return(body_input)
       # diary.add(title_input, body_input)
-      diary.add(title_input, body_input)
-      expect(entry_double).to receive(:title).and_return(title_input)
-      diary.index
+
+      diary.add('a','b')
+
+      expect(diary.index).to eq "title"
     end
   end
 
