@@ -8,6 +8,7 @@ class Diary
   end
 
   def add(title, body)
+    #entry = Entry.new("","")
     @entries << @entry.new(title, body)
   end
 

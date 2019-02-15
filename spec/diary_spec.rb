@@ -12,8 +12,9 @@ describe Diary do
       diary = Diary.new(entry_class_double)
       # allow(entry_double).to receive(:title).and_return(title_input)
       # allow(entry_double).to receive(:body).and_return(body_input)
-      diary.add(title_input, body_input)
+      diary.add("kitty cat", "puppy dog")
       expect(diary.entries).to include entry_double
+      p diary.entries
     end
   end
 
