@@ -1,14 +1,14 @@
-class EmailClient
-  def message
-    Message.new
-  end
-end
-
-class Message
-  def send(to, body)
-    # Imagine I'm sending an email
-  end
-end
+# class EmailClient
+#   def message
+#     Message.new
+#   end
+# end
+#
+# class Message
+#   def send(to, body)
+#
+#   end
+# end
 
 class SayHelloToMyLittleFriend
 attr_reader :message_class
@@ -19,10 +19,13 @@ attr_reader :message_class
   end
 
   def run
-    email = @email_client_class.new
-    email.message.send(
-      "friend@example.com",
-      "HELLO!"
-    )
-  end
+    email_client = @email_client_class.new
+    email_client.message.send(
+    "friend@example.com",
+    "HELLO!"
+  )
 end
+end
+# sayHelloToMyLittleFriend = SayHelloToMyLittleFriend.new
+# email_client = EmailClient.new
+# puts sayHelloToMyLittleFriend.run
